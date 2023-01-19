@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>CreateMediatRCommand</Title>
+            <Shortcut>mc</Shortcut>
+        </Header>
+        <Snippet>
+            <Imports>
+                <Import>
+                    <Namespace>MediatR</Namespace>
+                </Import>
+            </Imports>
+            <Code Language="CSharp">
+                <![CDATA[public record $Name$Command() : IRequest<Unit>;
+
+				public class $Name$CommandHandler : IRequestHandler<$Name$Command,Unit>
+				{  
+					private readonly ILogger<$Name$CommandHandler> _logger;
+
+					public $Name$CommandHandler(ILogger<$Name$CommandHandler> logger)
+					{
+						_logger = logger;
+					}
+				
+					public async Task<Unit> Handle($Name$Command  request, CancellationToken cancellationToken)
+					{
+						throw new NotImplementedException();
+					}
+				}]]>
+            </Code>
+			<Declarations>
+				<Literal Editable="true">
+				  <ID>Name</ID>
+				  <ToolTip>Command name.</ToolTip>
+				  <Default>CMD</Default>
+				</Literal>
+			</Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
